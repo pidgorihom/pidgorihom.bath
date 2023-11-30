@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIDGORIHOM</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+</head>
+
+<body>
+    <header id="myHeader" class="sticky">
+        <button class="nav-button nav-button--top js-mobile-trigger"> <span
+                class="nav-button__icon nav-button__icon--initial"> <span class="inner"></span> </span> <span
+                class="nav-button__icon nav-button__icon--hover"> <span class="inner"></span> </span> <span
+                class="nav-button__label">меню</span>
+        </button>
+        <div class="container">
+            <!--<button class="buy_ticket" type="button">замовити відвідування</button>-->
+            <a href="/" class="small_logo" title="Лазня під горіхом">
+                <img src="img/logo.png" alt="ПІД ГОРІХОМ" class="logo">
+                <div class="big">лазня під горіхом</div>
+                <div class="small">- місце, де оновлюється тіло і душа -</div>
+            </a>
+            <ul class="social">
+                <li><a href="https://instagram.com/laznya_pid_gorihom?igshid=OGQ5ZDc2ODk2ZA=="><img
+                            src="img/icons/instagram.svg" alt="instagram"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552220042744"><img src="img/icons/facebook.svg"
+                            alt="facebook"></a></li>
+                <li><a href="https://air.tl/amzoT0xv"><img src="img/icons/airbnb.svg" alt="x"></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="nav-primary-hld">
+        <button class="close-nav-button js-mobile-trigger"> <span class="label">сховати</span> <i class="close-icon">
+                <span class="initial"></span> <span class="hover"></span> </i>
+        </button>
+        <ul class="nav-primary">
+            <li class="active "><a class="active" href="index.html#index"><span>Головна</span></a></li>
+            <li class=" "><a class=" " href="price_bath.html"><span>Ціни на оренду лазні</span></a></li>
+            <li class=" "><a class=" " href="price_house.html"><span>Ціни на оренду будинку</span></a></li>
+            <li class=" "><a class=" " href="gallery.html"><span>Галерея</span></a></li>
+            <li class=" "><a class=" " href="index.html#contacts"><span>Контакти</span></a></li>
+        </ul>
+        <ul class="social-hld social-hld--side">
+            <li><a class="social-hld__link" href="https://instagram.com/laznya_pid_gorihom?igshid=OGQ5ZDc2ODk2ZA=="><img
+                        src="img/icons/instagram.svg" alt="instagram"></a></li>
+            <li><a class="social-hld__link" href="https://www.facebook.com/profile.php?id=61552220042744"><img
+                        src="img/icons/facebook.svg" alt="facebook"></a></li>
+            <li><a class="social-hld__link" href="https://air.tl/amzoT0xv"><img src="img/icons/airbnb.svg" alt="x"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="site-overlay js-mobile-trigger"></div>
+
+    <section class="gallery_section">
+        <div class="section_content container">
+            <h1 class="section_title">Галерея</h1>
+            <div class="gallery_container">
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="time">
+                    <img src="img/icons/icons8-time.svg" alt="">
+                    10:00 - 23:00<br>
+                    Працюємо Пн - Сб
+                </div>
+
+                <div class="phone">
+                    <img src="img/icons/icons8-phone-50.png" alt="">
+                    +3 8(063) 310 34 17<br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=50.390955%2C30.613642">м. Київ, 191-а
+                        Садова вулиця, 40</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/gallery/app.js"></script>
+    <script src="js/gallery/items.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <script>
+        // enable fancybox
+        Fancybox.bind("[data-fancybox]", {
+            // Your custom options
+        });
+
+
+        // sticky header
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function () { myFunction() };
+        // Get the header
+        var header = document.getElementById("myHeader");
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+    </script>
+
+    <script>
+        /* side menu */
+        var $siteOverlay = $('.site-overlay');
+        var openNav = function () {
+            $(window).trigger('open-nav');
+            $('body').addClass('nav-open');
+            $('.summary-footer--fixed').addClass('is-moved');
+            if (window.innerWidth >= 768) {
+                $('.site-top, .section-bg-hld--fixed').css({
+                    top: $(document).scrollTop()
+                });
+            } else {
+                $('.section-bg-hld--fixed').css({
+                    top: $(document).scrollTop()
+                });
+            }
+            $siteOverlay.addClass('active');
+        }
+        var closeNav = function () {
+            $(window).trigger('close-nav');
+            $('body').removeClass('nav-open');
+            setTimeout(function () {
+                // all of this happens after site 'moves', in styles set to 300ms
+                $('.summary-footer--fixed').removeClass('is-moved');
+                $('.site-top, .section-bg-hld--fixed').css({
+                    top: 0
+                });
+            }, 300);
+            $siteOverlay.addClass('hide');
+            setTimeout(function () {
+                $siteOverlay.removeClass('hide active');
+                $('.nav-primary [data-show-nav]').each(function () {
+                    var $this = $(this);
+                    if ($this.find('.subnav-toggle-icon.active').length) {
+                        $this.trigger('click');
+                    }
+                });
+            }, 300);
+        }
+        var toggleNav = function () {
+            if (!$('body').is('.nav-open')) {
+                openNav();
+            } else {
+                closeNav();
+            }
+        }
+        $(function () {
+            $('.js-mobile-trigger, .js-toggle-nav').on('click', function () {
+                toggleNav();
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

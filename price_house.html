@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIDGORIHOM</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+</head>
+
+<body>
+    <header id="myHeader" class="sticky">
+        <button class="nav-button nav-button--top js-mobile-trigger"> <span
+                class="nav-button__icon nav-button__icon--initial"> <span class="inner"></span> </span> <span
+                class="nav-button__icon nav-button__icon--hover"> <span class="inner"></span> </span> <span
+                class="nav-button__label">меню</span>
+        </button>
+        <div class="container">
+            <!--<button class="buy_ticket" type="button">замовити відвідування</button>-->
+            <a href="/" class="small_logo" title="Лазня під горіхом">
+                <img src="img/logo.png" alt="ПІД ГОРІХОМ" class="logo">
+                <div class="big">лазня під горіхом</div>
+                <div class="small">- місце, де оновлюється тіло і душа -</div>
+            </a>
+            <ul class="social">
+                <li><a href="https://instagram.com/laznya_pid_gorihom?igshid=OGQ5ZDc2ODk2ZA=="><img
+                            src="img/icons/instagram.svg" alt="instagram"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552220042744"><img src="img/icons/facebook.svg"
+                            alt="facebook"></a></li>
+                <li><a href="https://air.tl/amzoT0xv"><img src="img/icons/airbnb.svg" alt="x"></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="nav-primary-hld">
+        <button class="close-nav-button js-mobile-trigger"> <span class="label">сховати</span> <i class="close-icon">
+                <span class="initial"></span> <span class="hover"></span> </i>
+        </button>
+        <ul class="nav-primary">
+            <li class="active "><a class="active" href="index.html#index"><span>Головна</span></a></li>
+            <li class=" "><a class=" " href="price_bath.html"><span>Ціни на оренду лазні</span></a></li>
+            <li class=" "><a class=" " href="price_house.html"><span>Ціни на оренду будинку</span></a></li>
+            <li class=" "><a class=" " href="gallery.html"><span>Галерея</span></a></li>
+            <li class=" "><a class=" " href="index.html#contacts"><span>Контакти</span></a></li>
+        </ul>
+        <ul class="social-hld social-hld--side">
+            <li><a class="social-hld__link" href="https://instagram.com/laznya_pid_gorihom?igshid=OGQ5ZDc2ODk2ZA=="><img
+                        src="img/icons/instagram.svg" alt="instagram"></a></li>
+            <li><a class="social-hld__link" href="https://www.facebook.com/profile.php?id=61552220042744"><img
+                        src="img/icons/facebook.svg" alt="facebook"></a></li>
+            <li><a class="social-hld__link" href="https://air.tl/amzoT0xv"><img src="img/icons/airbnb.svg" alt="x"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="site-overlay js-mobile-trigger"></div>
+
+    <section class="price-house section">
+        <div class="section_content container">
+            <h1 class="section_title">Ціни на оренду будинку</h1>
+            <div class="section_text">
+                <p>Цiна на 6 гостей:<br>
+                    Субота – 6000 грн<br>
+                    Пн-Чт – 5000 грн<br>
+                    Пт,Нд – 5500 грн<br>
+                    Вартiсть лазнi – 2000грн (4-5год)</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="time">
+                    <img src="img/icons/icons8-time.svg" alt="">
+                    10:00 - 23:00<br>
+                    Працюємо Пн - Сб
+                </div>
+
+                <div class="phone">
+                    <img src="img/icons/icons8-phone-50.png" alt="">
+                    +3 8(063) 310 34 17<br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=50.390955%2C30.613642">м. Київ, 191-а
+                        Садова вулиця, 40</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+    <!-- scripts -->
+    <script src="script.js"></script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>-->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.scrollify.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+
+    <script>
+        $(function () {
+            // add scrollify plugin
+            $.scrollify({
+                section: "section",
+                sectionName: "section-name",
+                setHeights: false,
+
+                // circle pagination right
+                scrollbars: false,
+                before: function (i, panels) {
+
+                    var ref = panels[i].attr("data-section-name");
+
+                    $(".pagination .active").removeClass("active");
+
+                    $(".pagination").find("a[href=\"#" + ref + "\"]").addClass("active");
+                },
+                afterRender: function () {
+                    var pagination = "<ul class=\"pagination\">";
+                    var activeClass = "";
+                    $(".panel").each(function (i) {
+                        activeClass = "";
+                        if (i === $.scrollify.currentIndex()) {
+                            activeClass = "active";
+                        }
+                        pagination += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\"><span class=\"hover-text\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</span></a></li>";
+                    });
+
+                    pagination += "</ul>";
+
+                    $(".home").append(pagination);
+                    /*
+              
+                    Tip: The two click events below are the same:
+              
+                    $(".pagination a").on("click",function() {
+                      $.scrollify.move($(this).attr("href"));
+                    });
+              
+                    */
+                    $(".pagination a").on("click", $.scrollify.move);
+                }
+            });
+
+            // scroll to exact section
+            $('.js-scrollify-to').click(function (e) {
+                e.preventDefault();
+                //console.log("!!!");
+                //var ggg = $.section--home[data-section - name="' + $(this).data('scrollify-to-name')+ '"]'
+                //console.log($(this).data('scrollify-to-name'));
+                $.scrollify.move("#" + $(this).data('scrollify-to-name'));
+            });
+
+            // scroll to next section
+            $('.js-scrollify-to-next').click(function () {
+                $.scrollify.next();
+            });
+
+
+
+        });
+    </script>
+
+    <script>
+        // menu circles animation
+        $(function () {
+            $('.menu_circle_item').hover(function () {
+                var $this = $(this);
+                if (!$this.is('.is-animated')) {
+                    var $rippleThingy = $('<div/>', {
+                        'class': 'ripple-thingy'
+                    }).appendTo($this);
+                    setTimeout(function () {
+                        $rippleThingy.remove();
+                        if ($this.is('.is-animated')) {
+                            if ($('.ripple-thingy', $this).length == 0) {
+                                $this.addClass('is-bordered');
+                            }
+                        }
+                    }, 1500);
+                }
+                $this.addClass('is-animated');
+            }, function () {
+                var $this = $(this);
+                $this.removeClass('is-animated');
+                $this.removeClass('is-bordered');
+            });
+        });
+    </script>
+
+    <script>
+        // enable slick carousel
+        $(document).ready(function () {
+            $('#big-hall_carousel .carousel').slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+
+                prevArrow: '#big-hall_carousel button.carousel_prev',
+                nextArrow: '#big-hall_carousel button.carousel_next',
+                responsive: [
+                    {
+                        breakpoint: 1150,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    },
+                    {
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 490,
+                        settings: {
+                            centerMode: true,
+                            slidesToShow: 2,
+                            prevArrow: false,
+                            nextArrow: false
+                        }
+                    }
+                ]
+            });
+            $('#small-hall_carousel .carousel').slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+
+                prevArrow: '#small-hall_carousel button.carousel_prev',
+                nextArrow: '#small-hall_carousel button.carousel_next',
+                responsive: [
+                    {
+                        breakpoint: 1150,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    },
+                    {
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 490,
+                        settings: {
+                            centerMode: true,
+                            slidesToShow: 2,
+                            prevArrow: false,
+                            nextArrow: false
+                        }
+                    }
+                ]
+            });
+            $('#house_carousel .carousel').slick({
+                infinite: true,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+
+                prevArrow: '#house_carousel button.carousel_prev',
+                nextArrow: '#house_carousel button.carousel_next',
+                responsive: [
+                    {
+                        breakpoint: 1150,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    },
+                    {
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 490,
+                        settings: {
+                            centerMode: true,
+                            slidesToShow: 2,
+                            prevArrow: false,
+                            nextArrow: false
+                        }
+                    }
+                ]
+            });
+        });
+
+
+        // enable fancybox
+        Fancybox.bind("[data-fancybox]", {
+            // Your custom options
+        });
+
+
+        // sticky header
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function () { myFunction() };
+        // Get the header
+        var header = document.getElementById("myHeader");
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+    </script>
+
+    <script>
+        /* side menu */
+        var $siteOverlay = $('.site-overlay');
+        var openNav = function () {
+            $(window).trigger('open-nav');
+            $('body').addClass('nav-open');
+            $('.summary-footer--fixed').addClass('is-moved');
+            if (window.innerWidth >= 768) {
+                $('.site-top, .section-bg-hld--fixed').css({
+                    top: $(document).scrollTop()
+                });
+            } else {
+                $('.section-bg-hld--fixed').css({
+                    top: $(document).scrollTop()
+                });
+            }
+            $siteOverlay.addClass('active');
+        }
+        var closeNav = function () {
+            $(window).trigger('close-nav');
+            $('body').removeClass('nav-open');
+            setTimeout(function () {
+                // all of this happens after site 'moves', in styles set to 300ms
+                $('.summary-footer--fixed').removeClass('is-moved');
+                $('.site-top, .section-bg-hld--fixed').css({
+                    top: 0
+                });
+            }, 300);
+            $siteOverlay.addClass('hide');
+            setTimeout(function () {
+                $siteOverlay.removeClass('hide active');
+                $('.nav-primary [data-show-nav]').each(function () {
+                    var $this = $(this);
+                    if ($this.find('.subnav-toggle-icon.active').length) {
+                        $this.trigger('click');
+                    }
+                });
+            }, 300);
+        }
+        var toggleNav = function () {
+            if (!$('body').is('.nav-open')) {
+                openNav();
+            } else {
+                closeNav();
+            }
+        }
+        $(function () {
+            $('.js-mobile-trigger, .js-toggle-nav').on('click', function () {
+                toggleNav();
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
