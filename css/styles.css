@@ -333,6 +333,7 @@ footer .time img,
 footer .phone img {
     position: absolute;
     left: 0;
+    top: 5px;
     width: 26px;
     height: 26px;
 }
@@ -526,6 +527,7 @@ p.img-slide-text {
     text-align: center;
     /*padding-top: 100px;*/
     font-size: 3rem;
+    /*font-size: clamp(1.5rem, 5vW + 1rem , 4rem);*/
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -1223,6 +1225,10 @@ html.lt-ie10 .nav-primary>li ul li {
         z-index: 5;
     }
 
+    section {
+        min-height: 700px;
+    }
+
 
 
     .big_logo {
@@ -1355,6 +1361,20 @@ html.lt-ie10 .nav-primary>li ul li {
         position: relative;
         margin-top: unset;
         padding: 1.5rem 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-around;
+    }
+    
+    footer .arrow_down {
+        left: 100%;
+    }
+    
+    footer .time, footer .phone {
+        padding-left: 35px;
     }
 }
 
